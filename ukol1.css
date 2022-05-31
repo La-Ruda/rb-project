@@ -125,10 +125,10 @@ body {
 
 .menu__logo {
     height: auto;
-    width: 8%;
+    width: 7.5vw;
     position: relative;
     top: 35px;
-    margin-right: 0.5rem;
+    margin-right: 1.2rem;
 }
 
 
@@ -136,17 +136,14 @@ body {
     display: flex;
     width: 100%;
     align-items: center;
-    margin-left: 2%;
-    margin-right: 2%;
+    margin: 0 33.031px;
 }
 
 .menu__ul {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    gap: 7%;
-    margin-left: 2%;
-    margin-right: 2%;
+    gap: 2rem;
 }
 
 
@@ -155,18 +152,101 @@ body {
     font-size: 1.2rem;
     white-space: nowrap;
     text-transform: uppercase;
+    box-shadow: inset 0 0 0 0 white;
+    margin: 0 -.25rem;
+    padding: 0 .25rem;
+    transition: color 0.4s ease-in-out, box-shadow 0.5s ease-in-out;
 }
 
 
-.menu__button:hover {
-    font-weight: 800;
-    text-decoration: underline;
-    transition: all 100ms ease-in-out;
+@media not all and (hover: none) {
+    .menu__button:hover {
+        box-shadow: inset 120px 0 0 0 white;
+        color: #db0a40;
+    }
 }
 
 .menu__ul--pravo {
     margin-left: auto;
 }
+
+
+/* HAMBURGER MENU */
+
+#menu__ham {
+    display: none;
+    margin-right: 50px;
+}
+
+
+#menu__ham__toggle {
+    position: relative;
+    user-select: none;
+}
+
+#menu__ham input {
+    display: none;
+}
+
+
+#menu__ham__toggle input:checked ~ ul {
+    right: -50px;
+}
+
+
+#menu__ham__lines {
+    width: 40px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: stretch;
+    z-index: 5;
+}
+
+#menu__ham__lines div {
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    z-index: 5;
+}
+
+
+@media not all and (hover: none) {
+    #menu__ham__lines:hover {
+        cursor: pointer;
+    }
+}
+
+
+#menu__ham__ul {
+    background-color: #db0a40;
+    width: 150px;
+    height: 220px;
+    position: absolute;
+    padding: 80px 33.031px 40px;
+    right: -400px;
+    top: -20px;
+    transition: right 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border-radius: 2px;
+    border-left: 2px solid white;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    justify-content: space-between;
+}
+
+#menu__ham__button {
+    color: white;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+
+
+/* HAMBURGER MENU */
 
 
 .main {
@@ -181,7 +261,8 @@ body {
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 4%;
+    row-gap: 2.6vw;
+    column-gap: 3vw;
 }
 
 
@@ -211,27 +292,34 @@ body {
 
 .main__img {
     height: auto;
+    box-sizing: border-box;
     border: 5px solid #db0a40;
     transition: all 500ms ease-in-out;
 }
 
 .main__img--big {
-    max-width: 95%;
+    max-width: 100%;
 }
 
-.main__img--big:hover {
-    max-width: 97%;
+
+@media not all and (hover: none) {
+    .main__img--big:hover {
+        transform: scale(1.02);
+    }
 }
 
 
 .main__img--small {
-    max-width: 97%;
+    max-width: 100%;
 }
 
 
-.main__img--small:hover {
-    max-width: 99%;
+@media not all and (hover: none) {
+    .main__img--small:hover {
+        transform: scale(1.02);
+    }
 }
+
 
 
 .main__headline {
@@ -246,13 +334,13 @@ body {
 
 .main__headline--big {
     font-size: 1.3vw;
-    padding: 3%;
+    padding: 1.3vw;
 }
 
 
 .main__headline--small {
     font-size: 1vw;
-    padding: 2%;
+    padding: 0.7vw;
 }
 
 
@@ -278,9 +366,7 @@ body {
 }
 
 .team__text {
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 5%;
+    margin: 4vw 4vw 0;
     text-align: left;
 }
 
@@ -320,30 +406,32 @@ body {
     margin-bottom: 30px;
 }
 
-.team__button:hover {
-    cursor: pointer;
-    border: 3px solid white;
-    font-size: 0.9rem;
-}
 
+@media not all and (hover: none) {
+    .team__button:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+        background-color: white;
+        color: #db0a40;
+        transition: all 80ms ease-in-out;
+    }
+}
 
 
 .shop {
     margin-top: 100px;
-    display: flex;
-    justify-content: center;
     max-width: 79%;
     margin-left: auto;
     margin-right: auto;
-    gap: 6%;
-    flex-wrap: wrap;
+    flex-wrap: wrap; 
+    display: flex;  
 }
 
 .shop__headline {
     background: #db0a40;
     width: 100%;
     text-align: center;
-    padding: 2%;
+    padding: 26.094px;
     font-size: 1.3rem;
     text-transform: uppercase;
     color: white;
@@ -352,8 +440,20 @@ body {
 }
 
 
-.shop__card {
+.shop__offer {
+    display: flex;
+    justify-content: space-around;
     margin-top: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap;
+    gap: 3vw;
+}
+
+
+
+
+.shop__card {
     max-height: 250px;
     max-width: 250px;
     display: flex;
@@ -382,19 +482,27 @@ body {
     -ms-transform: translate(-50%, -50%);
 }
 
-.shop__card:hover .shop__img {
-    opacity: 0.1;
+
+
+@media not all and (hover: none) {
+    .shop__card:hover .shop__img {
+        opacity: 0.1;
+    }
 }
 
-.shop__card:hover .shop__description {
-    opacity: 1;
-    background-color: #db0a40;
+
+@media not all and (hover: none) {
+    .shop__card:hover .shop__description {
+        opacity: 1;
+        background-color: #db0a40;
+    }
 }
+
 
 .shop__text {
     background-color: white;
     color: #db0a40;
-    padding: 3%;
+    padding: 3.750px;
     cursor: pointer;
     text-transform: uppercase;
     font-weight: 600;
@@ -434,6 +542,14 @@ body {
 
 /* MEDIA QUERIES */
 
+
+@media only screen and (max-width: 1505px) {
+    .shop__offer {
+        max-width: 800px;
+    }
+}
+
+
 @media only screen and (max-width: 890px) {
 
     .menu__logo {
@@ -459,8 +575,7 @@ body {
         flex-direction: column;
         gap: 2rem;
     }
-    
-    
+      
     
     .main__feature {
         position: relative;
@@ -469,16 +584,10 @@ body {
     }
     
     .main__img {
-        height: auto;
-        border: 5px solid #db0a40;
-        transition: all 500ms ease-in-out;
-    }
-    
-    .main__img--big {
-        max-width: 100%;
+        border: none;
     }
 
-    .main__img--big:hover {
+    .main__img--big {
         max-width: 100%;
     }
 
@@ -487,9 +596,6 @@ body {
         max-width: 100%;
     }
 
-    .main__img--small:hover {
-        max-width: 100%;
-    }
 
 
     .main__headline--big {
@@ -499,7 +605,6 @@ body {
     
     .main__headline--small {
         font-size: 2.4vw;
-        padding: 3%;
     }
 
     .team {
@@ -546,11 +651,31 @@ body {
     }
 }
 
+
+
+@media only screen and (max-width: 532px) {
+
+
+    .menu__logo {
+        width: 80px;
+        height: auto;
+    }
+
+    
+    .menu__ul, .menu__ul--pravo {
+        display: none;
+    }
+
+    #menu__ham {
+        display: unset;
+    }
+}
+
+
+
+
 @media only screen and (max-width: 471px) {
 
-    .menu__ul {
-        gap: 4%;
-    }
 
     .menu__button {
         font-size: 0.65rem;
@@ -558,7 +683,10 @@ body {
 
     .shop {
         margin-top: 20px;
-        gap: 2%;
+    }
+
+    .shop__offer {
+        margin-top: 30px;
     }
 
 }
